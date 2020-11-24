@@ -32,3 +32,6 @@ Ubundo headless - is basically a terminal, no GUI.
     - vagrant SSH
 - create a README.md file inside the machine and write your name and your movie
 ![](README.png)
+![](readme2.png)
+
+## Package manager `apt-get`
