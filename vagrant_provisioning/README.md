@@ -1,5 +1,32 @@
 # Vagrant and VM Provisioning
 
+## Core Sections of provisioning
+- There are some actions that are core to provisioning 
+- These concepts are tool and language agnostic 
+    - making files available
+    - being able to run  commands/scripts
+    - injecting environment variables 
+
+## Synching in files with VM
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.network "private_network", ip: "192.168.10.100"
+  #config.hostsupdater.aliases = ["development.local"]
+  config.vm.synced_folder "app", "/app"
+
+end
+```
+
+## Running a Basg script 
+This bashscript can install packages, alter files, do actionsin our linux servers when we run vagrant up. This will allow us to set up the machine to a state that is desirable for us and allows us to automate processes. 
+1. Create a `provision.sh` file
+2. include it in vagrant file
+## Managing services
+
+- `sudo systemctl <action> <service>`
+- `sudo systemctl restart nginx`
+
 Provisioning is derived from providing / supplying something. E.g. provisionining for food or water. 
 
 In this context it will be providing our machines with instructions, variables, files and folders. 
